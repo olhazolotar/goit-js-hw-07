@@ -27,18 +27,17 @@ const onClickImage = event => {
   const bigUrlImage = event.target.dataset.source;
 
   const instance = basicLightbox.create(`
-	<img src='${bigUrlImage}' width="800" height="600">
+	<img src='${bigUrlImage}' width="1280">
 `);
 
   instance.show();
 
-  document.addEventListener('keydown', onEscapePress);
+  document.addEventListener('keydown', onCloseModal);
 
-  function onEscapePress(event) {
-    if (event.code === 'escape') {
+  function onCloseModal(event) {
+    if (event.code === 'Escape') {
       instance.close();
     }
-    document.removeEventListener('keydown', onEscapePress);
   }
 };
 
