@@ -7,11 +7,11 @@ const galleryItemsEl = document.querySelector('.gallery');
 
 const markup = galleryItems
   .map(
-    ({ preview, original, description }) => `<a class="gallery__item" href=${original}>
+    ({ preview, original, description }) => `<li><a class="gallery__item" href=${original}>
   <img class="gallery__image"
   src=${preview}
   alt=${description} />
-</a>`,
+</a></li>`,
   )
   .join('');
 

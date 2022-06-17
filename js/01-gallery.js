@@ -24,7 +24,13 @@ galleryItemsEl.innerHTML = markup;
 
 const onClickImage = event => {
   event.preventDefault();
+
   const bigUrlImage = event.target.dataset.source;
+  const isGalleryImageEl = event.target.classList.contains('gallery__image');
+
+  if (!isGalleryImageEl) {
+    return;
+  }
 
   const instance = basicLightbox.create(`
 	<img src='${bigUrlImage}' width="1280">
@@ -38,6 +44,7 @@ const onClickImage = event => {
     if (event.code === 'Escape') {
       instance.close();
     }
+    document.removeEventListener('keydown', onCloseModal);
   }
 };
 
